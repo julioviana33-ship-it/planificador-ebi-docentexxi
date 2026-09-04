@@ -85,55 +85,60 @@ def generate_ebi_plan(idea, tramo, espacio, unidad, metodologia):
         
     idea_clean = idea.strip()
     
+    # Competencias alineadas a cada espacio
     competencias_mcn = {
         "Espacio Científico-Matemático": [
-            "Pensamiento Científico: Formula preguntas, experimenta y analiza evidencias.",
-            "Metacognición: Reflexiona sobre procesos de resolución de problemas."
+            "Pensamiento Científico: Formula preguntas, observa, experimenta y analiza evidencias.",
+            "Resolución de Problemas: Aplica estrategias lógicas y matemáticas para resolver desafíos."
         ],
         "Espacio de Comunicación": [
-            "Competencia Comunicativa: Expresa ideas de forma oral, escrita y multimedia.",
+            "Competencia Comunicativa: Expresa ideas de forma oral, escrita y multimedia con claridad.",
             "Pensamiento Crítico: Interpreta y cuestiona mensajes de textos diversos."
         ],
         "Espacio Creativo-Artístico": [
-            "Pensamiento Creativo: Diseña y se expresa artísticamente.",
-            "Lenguajes Estéticos: Codifica y decodifica mensajes visuales."
+            "Pensamiento Creativo: Diseña, innova y se expresa artísticamente.",
+            "Lenguajes Estéticos: Codifica y decodifica mensajes a través del arte."
         ],
         "Espacio de Ciencias Sociales y Humanidades": [
             "Competencia Ciudadana: Actúa reflexiva y éticamente ante problemas sociales.",
-            "Relación con los Otros: Practica empatía y valora diversidad."
+            "Empatía y Diversidad: Valora perspectivas diferentes y practica la inclusión."
         ],
         "Espacio de Desarrollo Personal y Social": [
-            "Intrapersonal: Gestiona emociones y regula esfuerzo.",
-            "Iniciativa: Toma decisiones autónomas para el bienestar."
+            "Autorregulación: Gestiona emociones y regula su comportamiento.",
+            "Iniciativa Personal: Toma decisiones autónomas para el bienestar propio y colectivo."
         ]
     }
     
     comps = competencias_mcn.get(espacio, ["Pensamiento Crítico", "Metacognición"])
     
-    meta_aprendizaje = f"Que el estudiante comprenda '{idea_clean}' de forma vivencial, relacionándolo con su vida diaria aplicando competencias del {espacio}."
+    # META DE APRENDIZAJE: Específica, medible y alineada al contenido
+    meta_aprendizaje = f"El estudiante comprenderá '{idea_clean}' de manera vivencial y reflexiva, identificando sus elementos clave, aplicando estrategias de {metodologia}, y demostrando comprensión a través de su participación activa en la secuencia didáctica."
     
+    # CRITERIOS DE LOGRO: Derivados directamente de la meta
     criterios_logro = [
-        f"Identifica y describe elementos clave de '{idea_clean}'.",
-        f"Aplica estrategias de {metodologia} para resolver desafíos.",
-        f"Reflexiona sobre su aprendizaje interactuando respetuosamente."
+        f"Identifica y explica los elementos esenciales de '{idea_clean}' utilizando vocabulario apropiado.",
+        f"Analiza '{idea_clean}' en contextos reales y establece conexiones con su vida cotidiana.",
+        f"Participa activamente en las actividades de {metodologia}, colaborando y respetando a sus compañeros.",
+        f"Demuestra reflexión sobre su propio aprendizaje de '{idea_clean}' a través de la evaluación formativa."
     ]
     
+    # Secuencia didáctica según metodología
     if metodologia == "Aprendizaje Basado en Proyectos (ABP)":
-        inicio = f"**Lanzamiento (15 min):** Presenta problema sobre '{idea_clean}'. Formula pregunta impulsora y organiza equipos."
-        desarrollo = f"**Investigación (45 min):** Equipos recopilan info, experimentan y diseñan solución sobre '{idea_clean}'."
-        cierre = f"**Difusión (20 min):** Grupos exponen hallazgos con coevaluación."
+        inicio = f"**Lanzamiento del Reto (15 min):** Presenta a los estudiantes un problema o desafío real relacionado con '{idea_clean}'. Activa saberes previos con preguntas impulsoras. Organiza el aula en pequeños equipos de trabajo heterogéneos."
+        desarrollo = f"**Investigación y Prototipado (45 min):** Los equipos recopilan información sobre '{idea_clean}', experimentan con recursos disponibles y diseñan una solución o producto. El docente actúa como facilitador, orientando sin resolver el problema."
+        cierre = f"**Presentación y Coevaluación (20 min):** Cada grupo expone brevemente su solución. Realizan coevaluación usando rúbrica compartida. Se reflexiona sobre procesos y aprendizajes."
     elif metodologia == "Indagación Científica y Experimentación":
-        inicio = f"**Focalización (15 min):** Presenta fenómeno sobre '{idea_clean}'. Registra hipótesis colectivas."
-        desarrollo = f"**Exploración (45 min):** Estudiantes manipulan materiales y analizan datos de '{idea_clean}'."
-        cierre = f"**Conclusión (20 min):** Contrastan hipótesis con resultados."
+        inicio = f"**Focalización (15 min):** Presenta un fenómeno intrigante sobre '{idea_clean}'. Promueve la observación directa y recopila hipótesis de los estudiantes. Registra predicciones colectivas."
+        desarrollo = f"**Exploración (45 min):** Estudiantes manipulan materiales concretos o analizan datos para comprobar hipótesis sobre '{idea_clean}'. Registran observaciones y buscan patrones. Docente guía el pensamiento científico con preguntas."
+        cierre = f"**Conclusión y Reflexión (20 min):** Contrastan hipótesis iniciales con resultados. Elaboran conclusiones científicas sobre '{idea_clean}'. Reflexionan sobre el proceso de investigación."
     elif metodologia == "Gamificación Educativa":
-        inicio = f"**Inmersión (15 min):** Explica misión lúdica sobre '{idea_clean}'. Define reglas y roles."
-        desarrollo = f"**Misión (45 min):** Equipos superan retos de aprendizaje secuenciales."
-        cierre = f"**Recuento (20 min):** Celebra logros e identifica estrategias."
-    else:
-        inicio = f"**Activación (15 min):** Introduce '{idea_clean}' con Pensar-Compartir-Discutir en parejas."
-        desarrollo = f"**Trabajo (45 min):** Asigna roles (coordinador, secretario, portavoz) en equipos."
-        cierre = f"**Evaluación (20 min):** Síntesis grupal y metacognición."
+        inicio = f"**Inmersión Narrativa (15 min):** Explica la misión lúdica o desafío del día vinculado a '{idea_clean}'. Presenta reglas claras, roles de equipos y sistema de puntuación. Crea entusiasmo y motivación."
+        desarrollo = f"**Misiones y Retos (45 min):** Equipos superan desafíos secuenciales de aprendizaje sobre '{idea_clean}'. Acumulan puntos y avanzan de niveles. Se promueve perseverancia ante errores y trabajo colaborativo."
+        cierre = f"**Recuento y Metacognición (20 min):** Anuncia ganadores y celebra logros de todos. Reflexionan sobre estrategias que los ayudaron a aprender '{idea_clean}'. Conexión del aprendizaje lúdico con contenidos académicos."
+    else:  # Aprendizaje Cooperativo
+        inicio = f"**Activación en Parejas (15 min):** Introduce '{idea_clean}' mediante lectura, imagen o video breve. Aplica estructura 'Pensar-Compartir-Discutir' en parejas. Cada pareja comparte su perspectiva inicial."
+        desarrollo = f"**Trabajo Interdependiente (45 min):** Asigna roles específicos en equipos (coordinador, secretario, portavoz, gestor de tiempo). Cada miembro es responsable de una sección del aprendizaje. Todos contribuyen para el éxito del equipo sobre '{idea_clean}'."
+        cierre = f"**Síntesis Grupal (20 min):** Cada equipo presenta síntesis de su trabajo. Docente destaca contribuciones individuales. Metacognición: ¿Cómo funcionó el equipo? ¿Qué aprendimos de '{idea_clean}'?"
 
     return {
         "tramo": tramo,
@@ -159,11 +164,11 @@ if st.button("✨ Generar Planificación", use_container_width=True):
             
             col1, col2 = st.columns(2)
             with col1:
-                st.metric("Tramo", plan['tramo'].split("(")[0])
-                st.metric("Espacio", plan['espacio'].split()[-1])
-            with col2:
+                st.metric("Tramo", plan['tramo'].split("(")[0].strip())
                 st.metric("Unidad", plan['unidad'])
-                st.metric("Metodología", plan['metodologia'].split("(")[0])
+            with col2:
+                st.metric("Espacio", plan['espacio'].split()[-1])
+                st.metric("Metodología", plan['metodologia'].split("(")[0].strip())
             
             st.subheader("🎯 Competencias Priorizadas")
             for comp in plan['competencias']:
@@ -173,8 +178,9 @@ if st.button("✨ Generar Planificación", use_container_width=True):
             st.info(plan['meta'])
             
             st.subheader("🏆 Criterios de Logro")
-            for crit in plan['criterios']:
-                st.write(f"✅ {crit}")
+            st.markdown("*Alineados directamente con la meta de aprendizaje:*")
+            for i, crit in enumerate(plan['criterios'], 1):
+                st.write(f"{i}. {crit}")
             
             st.subheader("📐 Secuencia Didáctica")
             tab1, tab2, tab3 = st.tabs(["🚀 Inicio", "⚙️ Desarrollo", "🏆 Cierre"])
@@ -188,21 +194,21 @@ if st.button("✨ Generar Planificación", use_container_width=True):
             md_plan = f"""# Planificación EBI - DocenteXXI
 
 ## Datos Generales
-- Tramo: {plan['tramo']}
-- Espacio: {plan['espacio']}
-- Unidad: {plan['unidad']}
-- Metodología: {plan['metodologia']}
+- **Tramo:** {plan['tramo']}
+- **Espacio:** {plan['espacio']}
+- **Unidad Curricular:** {plan['unidad']}
+- **Metodología:** {plan['metodologia']}
 
-## Competencias
+## Competencias Priorizadas
 {chr(10).join([f'- {c}' for c in plan['competencias']])}
 
-## Meta
+## Meta de Aprendizaje
 {plan['meta']}
 
-## Criterios
-{chr(10).join([f'- {c}' for c in plan['criterios']])}
+## Criterios de Logro (Alineados con la Meta)
+{chr(10).join([f'{i+1}. {c}' for i, c in enumerate(plan['criterios'])])}
 
-## Secuencia
+## Secuencia Didáctica
 
 ### Inicio
 {plan['inicio']}
@@ -214,12 +220,12 @@ if st.button("✨ Generar Planificación", use_container_width=True):
 {plan['cierre']}
 
 ---
-DocenteXXI © 2026-2027
+DocenteXXI © 2026-2027 | Ideas que brillan, aulas que inspiran
 """
             st.download_button(
                 "📥 Descargar Planificación",
                 md_plan,
-                "planificacion.md",
+                "planificacion-ebi.md",
                 use_container_width=True
             )
 
